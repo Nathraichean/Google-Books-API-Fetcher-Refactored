@@ -111,9 +111,12 @@ async function getFavoriteBooks() {
     document.getElementById("booksFlexDiv").innerHTML = ""
     const books = await fetchBooks(API_BASE_URL, "/customBooks");
 
-    books.forEach(book => {
+    let favoriteBooksCount = 0;
 
+    books.forEach(book => {
         if (book.favorite) {
+            favoriteBooksCount++
+
             // Getset elements in variables
             const bookElement = document.getElementsByClassName("book-container")[0].cloneNode(true);
             const headerElement = bookElement.getElementsByClassName("book-container-header")[0];
@@ -149,48 +152,12 @@ async function getFavoriteBooks() {
             })
         }
     })
-}
-
-async function addToFavorites(bookId) {
-
-    // Gets target book element
-    let targetBook = await getBookByID(bookId);
-
-    // Checks if book exists in db. If it does't, saves it and fetches again.
-    if (!targetBook) {
-        await saveBookToDB(bookId);
-        targetBook = await getBookByID(bookId);
-    }
-
-    const bookElement = document.getElementById(bookId);
-    const favoriteBtnElement = bookElement.querySelector(".book-container-favoriteButton");
-
-    // If book.favorite is false, adds class for css and updates the book in db.
-    if (targetBook.favorite == false) {
-        if (favoriteBtnElement.classList.contains("favorite-false")) {
-            favoriteBtnElement.classList.remove("favorite-false")
-        }
-        favoriteBtnElement.classList.add("favorite-true");
-        favoriteBtnElement.value = "Remove from Favorites";
-        targetBook.favorite = true;
-        updateBookByObject(targetBook);
-    }
-    // Does the same but in inverted
-    else if (targetBook.favorite == true) {
-        if (favoriteBtnElement.classList.contains("favorite-true")) {
-            favoriteBtnElement.classList.remove("favorite-true")
-        }
-        favoriteBtnElement.classList.add("favorite-false");
-        favoriteBtnElement.value = "Add to Favorites";
-        targetBook.favorite = false;
-        updateBookByObject(targetBook);
+    
+    if (favoriteBooksCount == 0){
+        alert("You don't have favorite books yet. Try searching for some books first "+
+        "and add one'd you like as a favorite. After that, you would find it here.")
     }
 }
-
-
-
-
-
 
 
 //----------------------- MISC. FUNCTIONS -----------------------------
@@ -249,6 +216,42 @@ function getBookDescription(book) {
     return defaultTitle;
 }
 
+// Adds book to favorites and updates the button
+async function addToFavorites(bookId) {
+
+    // Gets target book element
+    let targetBook = await getBookByID(bookId);
+
+    // Checks if book exists in db. If it does't, saves it and fetches again.
+    if (!targetBook) {
+        await saveBookToDB(bookId);
+        targetBook = await getBookByID(bookId);
+    }
+
+    const bookElement = document.getElementById(bookId);
+    const favoriteBtnElement = bookElement.querySelector(".book-container-favoriteButton");
+
+    // If book.favorite is false, adds class for css and updates the book in db.
+    if (targetBook.favorite == false) {
+        if (favoriteBtnElement.classList.contains("favorite-false")) {
+            favoriteBtnElement.classList.remove("favorite-false")
+        }
+        favoriteBtnElement.classList.add("favorite-true");
+        favoriteBtnElement.value = "Remove from Favorites";
+        targetBook.favorite = true;
+        updateBookByObject(targetBook);
+    }
+    // Does the same but in inverted
+    else if (targetBook.favorite == true) {
+        if (favoriteBtnElement.classList.contains("favorite-true")) {
+            favoriteBtnElement.classList.remove("favorite-true")
+        }
+        favoriteBtnElement.classList.add("favorite-false");
+        favoriteBtnElement.value = "Add to Favorites";
+        targetBook.favorite = false;
+        updateBookByObject(targetBook);
+    }
+}
 
 
 
@@ -434,8 +437,8 @@ function editAnnotation(annotationElement) {
 
         // Logic if both edit fields have content inside
         if (annotationDescriptionEditField.value.trim().length > 0 && annotationTitleEditField.value.trim().length > 0) {
-            annotationTitleElement.innerHTML = JSON.stringify(annotationTitleEditField.value);
-            annotationDescriptionElement.innerHTML = JSON.stringify(annotationDescriptionEditField.value);
+            annotationTitleElement.innerHTML = annotationTitleEditField.value;
+            annotationDescriptionElement.innerHTML = annotationDescriptionEditField.value;
         }
         // Logic if the Edit Description empty, but Edit Title has data
         else if (annotationDescriptionEditField.value.trim().length == 0 && annotationTitleEditField.value.trim().length > 0) {
@@ -443,7 +446,7 @@ function editAnnotation(annotationElement) {
         }
         // Logic if the Edit Title empty, but Edit Description has data
         else if (annotationDescriptionEditField.value.trim().length > 0 && annotationTitleEditField.value.trim().length == 0) {
-            annotationDescriptionElement.innerHTML = JSON.stringify(annotationDescriptionEditField.value);
+            annotationDescriptionElement.innerHTML = annotationDescriptionEditField.value;
         }
         annotationDateModifiedElement.innerHTML = `<small>Date modified: ${getCurrentDateTime()}</small>`;
         updateAnnotationDB(annotationElement);
