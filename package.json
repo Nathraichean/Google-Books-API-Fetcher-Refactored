@@ -1,0 +1,25 @@
+{
+  "name": "Google Books API Fetcher",
+  "version": "1.0.0",
+  "description": "Books Fetcher using Google Books' API with backend functionality/api calls using json-server/annotations/edits/favorites.",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server",
+    "api": "json-server --watch db.json --routes routes.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nathraichean/Google-Books-API-Fetcher.git"
+  },
+  "author": "Svetozar Blazhev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nathraichean/Google-Books-API-Fetcher.git/issues"
+  },
+  "homepage": "https://github.com/Nathraichean/Google-Books-API-Fetcher.git#readme",
+  "devDependencies": {
+    "json-server": "^0.17.0",
+    "lite-server": "^2.6.1"
+  },
+  "dependencies": {}
+}

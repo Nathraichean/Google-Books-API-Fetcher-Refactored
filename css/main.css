@@ -1,0 +1,201 @@
+/* ---------------------book elements------------------------- */
+.book-action-btn{
+  border-radius: 5px;
+  width: 35%;
+  padding: 5px;
+  margin: 5px;
+  margin-top: 10px;
+}
+.book-container-editForm{
+  display: none;
+}
+.book-container-annotationForm{
+  display: none;
+}
+.delete-button{
+  width: 20%;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-color:lightgray;
+  border-style:solid;
+  border-radius: 5px;
+  background-color: rgba(248, 44, 44, 0.3);
+}
+
+.book {
+  margin: 2.5%;
+  padding: 2%;
+  background-color: ghostwhite;
+  text-align: center;
+  max-width: 380px;
+  min-width: 380px;
+  overflow-y: scroll;
+  max-height:700px;
+  border-style: solid;
+}
+
+#booksFlexDiv, #favoritesFlexDiv{
+  display: flex;
+  background-color: gainsboro;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* scrollbar */
+.book::-webkit-scrollbar {
+  width: 15px;
+}
+.book::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius: 10px;
+  margin-bottom:30px;
+  margin-top:30px;
+  
+}
+.book::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+
+/* ---------------------book annotation elements------------------------- */
+.edit-annotation-title{
+  height: 25px;
+  width: 95%;
+  border-radius: 5px;
+  margin: 3px;
+}
+
+.annotation-form-title{
+  max-height: 25px;
+  width: 95%;
+  border-radius: 5px;
+  margin: 3px;
+}
+
+.annotation-form-input{
+  max-width: 95%;
+  min-width: 95%;
+  margin: 3px;
+  border-radius: 5px;
+}
+.edit-annotation-button{
+  width: 20%;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-color:lightgray;
+  border-style:solid;
+  border-radius: 5px;
+}
+.edit-annotation-field{
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border-radius: 5px;
+  border-color:rgb(63, 63, 63);
+  border-style:solid;
+  background-color: rgba(193, 193, 193, 0.3);
+}
+.annotation{
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border-radius: 5px;
+  border-color:lightgray;
+  border-style:solid;
+  background-color: rgba(193, 193, 193, 0.3);
+}
+.annotation-text{
+  margin:5px;
+  margin-bottom: 10px;
+  overflow-wrap: break-word;
+}
+.annotation-title{
+  margin:5px;
+  overflow-wrap: break-word;
+}
+.annotation-container{
+  border: solid;
+  border-radius: 5px;
+  background-color: rgba(255, 221, 0, 0.068);
+  padding:5px;
+  margin:5px;
+}
+.edit-annotation-text{
+  border-radius: 5px;
+  min-width:95%;
+  max-width: 95%;
+}
+.created, .modified{
+  margin:3px;
+  padding:0px;
+  font-size: small;
+}
+
+
+
+/* ---------------------book edit elements------------------------- */
+.edit-form-input{
+  width: 95%;
+  margin: 3px;
+  border-radius: 5px;
+}
+
+
+
+/* ---------------------others/global------------------------- */
+body {
+  background-image: url("img/background.jpg");
+}
+.footer {
+  width:90%;
+  text-align: center;
+  padding: 25px 25px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 20px;
+  background-color: darkslategrey;
+  position: relative;
+  bottom: 5%;
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+  border-radius: 25px;
+}
+
+.hidden {
+  display: none;
+}
+#searchFlexDiv {
+  width:auto;
+  text-align: center;
+  padding: 25px 25px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 20px;
+  background-color: darkslategrey;
+  color:white;
+}
+
+a:link {
+  color: white;
+}
+a:visited {
+  color: white;
+}
+
+.favorite-true{
+  background-color: rgba(255, 0, 0, 0.1);
+}
+.favorite-false{
+  background-color: rgba(0, 255, 0, 0.1);
+}

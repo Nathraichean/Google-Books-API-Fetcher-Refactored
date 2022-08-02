@@ -1,0 +1,56 @@
+{
+  "customBooks": [
+    {
+      "id": "XCLhDwAAQBAJ",
+      "title": "title",
+      "author": "title",
+      "description": "title",
+      "cover": "http://books.google.com/books/content?id=XCLhDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "favorite": false,
+      "annotations": [
+        {
+          "id": 1,
+          "parentBookId": "XCLhDwAAQBAJ",
+          "title": "asd",
+          "text": "asd",
+          "dateCreated": "2022-08-02 14:53:05",
+          "lastModified": "Never modified."
+        },
+        {
+          "id": 2,
+          "parentBookId": "XCLhDwAAQBAJ",
+          "title": "<h1>test</h1>",
+          "text": "test",
+          "dateCreated": "2022-08-02 21:10:14",
+          "lastModified": "2022-08-02 21:11:54"
+        }
+      ]
+    },
+    {
+      "id": "274fCwAAQBAJ",
+      "title": "sancho",
+      "author": "pansa",
+      "description": "ot karibite",
+      "cover": "http://books.google.com/books/content?id=274fCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "favorite": true,
+      "annotations": [
+        {
+          "id": 1,
+          "parentBookId": "274fCwAAQBAJ",
+          "title": "wow ",
+          "text": "this actually works smh",
+          "dateCreated": "2022-08-02 21:07:27",
+          "lastModified": "Never modified."
+        },
+        {
+          "id": 2,
+          "parentBookId": "274fCwAAQBAJ",
+          "title": "<h1> code injection </h1>",
+          "text": "test",
+          "dateCreated": "2022-08-02 21:07:57",
+          "lastModified": "Never modified."
+        }
+      ]
+    }
+  ]
+}

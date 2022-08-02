@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Google Books Indexer</title>
+    <script type="text/javascript" src="bookSearcher.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+</head>
+
+<body style="background-image: url('img/background.jpg');">
+    <div id="searchFlexDiv">
+        <form action="javascript:getBooksFromGoogle()">
+            <h1>What books are you looking for?<br></h1>
+            <p>This small app fetches books from <a href="https://developers.google.com/books">Google's books API</a> and shows the results below.</p>
+            <input id="bookSearchInput" type="text" placeholder="Enter book title or topic...">
+            <input id="booksSearchButton" type="button" onclick="getBooksFromGoogle()" value="Search"><br><br>
+            <input id="booksFavoritesButton" type="button" onclick="getFavoriteBooks()" value="Show Favorites"><br><br>
+        </form>
+    </div>
+
+    <div id="booksFlexDiv"></div>
+
+    <!-- Mocked element used for books creation -->
+    <div class="hidden">
+        <div class="book book-container hidden">
+            <h1 class="book-container-header"></h1>
+            <h3 class="book-container-subheader"></h3>
+            <p class="book-container-description"></p>
+            <img class="book-container-image" width="128px" height="193px" src="img/nofile.png" alt="Cover photo.">
+            <a class="book-container-download hidden" href="">
+                <img alt="Download this eBook." width="50px" height="50px" margin="20px" src="img/download.png">
+            </a><br>
+            <input class="book-container-editButton book-action-btn" type="button" onclick="toggleAnnotationForm(this.parentNode.id)" value="Annotations">
+            <input class="book-container-annotationsButton book-action-btn" type="button" onclick="toggleEditForm(this.parentNode.id)" value="Edit">
+            <input class="book-container-favoriteButton book-action-btn favorite-false" style="width: 75%;" type="button" onclick="addToFavorites(this.parentNode.id)" value="Add to Favorites"><br><br>
+            <form class="book-container-editForm" style="display: none;">
+                <input class="edit-form-input edit-title" type="text"  placeholder="Edit title...">
+                <input class="edit-form-input edit-author" type="text" placeholder="Edit author...">
+                <textarea class="edit-form-input edit-description" style="height: 200px;" type="text" placeholder="Edit description..."></textarea>
+                <input type="button" style="width: 40%" value="Submit edit" onclick="editBook(this.parentNode.parentNode.id)">
+            </form>
+            <form class="book-container-annotationForm" style="display: none;">
+                <div class="annotations-container"></div><br>
+                <label class="annotation-submit-label">Submit an annotation: </label>
+                <input class="annotation-form-title" style="height: 100px;" type="text" placeholder="Enter title..." maxlength="40" required></input>
+                <textarea class="annotation-form-input" style="height: 100px;" type="text" placeholder="Enter text..." maxlength="256" required></textarea>
+                <input type="button" style="width: 60%" value="Submit annotation" onclick="submitAnnotation(this.parentNode.parentNode.id)">
+            </form>
+            <form>
+
+            </form>
+            
+
+        </div>
+    </div>
+
+    <div id="footer" class="footer">
+        <h2>Created by Svetozar Blazhev. Flexbox/Fetch/API/JSON handling exercise.<br></h2>
+        <h3>Updated to implement edit/annotations/favorites functionality though custom API Calls.<br></h3>
+        <a href="https://www.github.com/Nathraichean">www.github.com/Nathraichean</a>
+    </div>
+</body>
+
+</html>
