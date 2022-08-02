@@ -1,5 +1,5 @@
 {
-  "name": "Google Books API Fetcher",
+  "name": "Google-Books-API-Fetcher",
   "version": "1.0.0",
   "description": "Books Fetcher using Google Books' API with backend functionality/api calls using json-server/annotations/edits/favorites.",
   "main": "index.js",
@@ -18,8 +18,9 @@
   },
   "homepage": "https://github.com/Nathraichean/Google-Books-API-Fetcher.git#readme",
   "devDependencies": {
+  },
+  "dependencies": {
     "json-server": "^0.17.0",
     "lite-server": "^2.6.1"
-  },
-  "dependencies": {}
+  }
 }
